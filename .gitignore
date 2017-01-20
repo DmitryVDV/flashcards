@@ -17,5 +17,10 @@
 !/log/.keep
 !/tmp/.keep
 
+# 1. в репозитории нет ненужных файлов (пустые файлы scss, coffee, _helper.rb)
+/app/helpers/*.rb
+/app/assets/stylesheets/home.scss
+/app/assets/javascripts/home.coffee
+
 # Ignore Byebug command history file.
 .byebug_history
