@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
-    <title>Флэшкарточкер</title>
+  <title>Флэшкарточкер</title>
   <link rel="stylesheet" href="application.css">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-  	<div class="container"
-	  	<div class="navbar navbar-default clearfix">
-	  		
-		   	 <div class="navbar-header">
-		  		<h1>Флэшкарточкер</h1>
-		  	 </div>
-		  	 <div class="nav navbar-nav navbar-right navigation-links">
-		  	 	<ul class="nav navbar-nav">
-	              <li><%= link_to "Все карточки", cards_path %></li>
-	             
-	              <li><a href="#">Добавить карточку</a></li>
-	             
-	              
-            	</ul>
-		  	 	
-		  	 
-
-		  	 </div>	
-		  	 
-	    </div>
-    
-
-	</div>
-
-
+    <div class="container"
+	  <div class="navbar navbar-default clearfix">	
+	    <div class="navbar-header">
+		  <h3>Флэшкарточкер</h3>
+		</div>
+		<div class="nav navbar-nav navbar-right navigation-links">
+		  <ul class="nav navbar-nav">
+	        <li><%= link_to "Все карточки", cards_path %></li>
+	        <li><%= link_to "Добавить карточку", new_card_path %></li>
+          </ul>
+		</div>	
+	  </div>
+    </div>
     <%= yield %>
   </body>
 </html>

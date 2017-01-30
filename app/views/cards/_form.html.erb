@@ -1,0 +1,6 @@
+<%= simple_form_for @card do |f| %>
+  <%= f.input :original_text, wrapper_html: { class: 'col-sm-4' }  %>
+  <%= f.input :translated_text, wrapper_html: { class: 'col-sm-4' }  %>
+  <%= f.input :review_date, wrapper_html: { class: 'col-sm-4' } %>
+  <%= f.button :submit %>
+<% end %>
