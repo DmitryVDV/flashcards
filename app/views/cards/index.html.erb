@@ -4,31 +4,31 @@
   </p>
   <div class="row">
     <% @cards.each do |card| %>
-	  <div class="col-md-3">
-	    <p class="text-center">
-		  <%= link_to card.original_text.to_s, card_path(card) %>
-		</p>
-	  </div>
-	  <div class="col-md-3">
-	    <p class="text-center">
-		  <%= card.translated_text %>
-		</p>
-	  </div> 
-	  <div class="col-md-2">
-	    <p class="text-center">
-		  <%= card.review_date.strftime("%d/%m/%Y")  %>
-		</p>
-	  </div> 
-	  <div class="col-md-2">
-	    <p class="text-center">
-		  <%= link_to "Edit", edit_card_path(card)  %>
+      <div class="col-md-3">
+        <p class="text-center">
+          <%= link_to card.original_text.to_s, card_path(card) %>
         </p>
-	  </div>
-	  <div class="col-md-1">
-	    <p class="text-center">
-		  <%= link_to "Del", card_path(card), method: :delete  %>
-		</p>
-	  </div>		     
-	<% end %>
+      </div>
+      <div class="col-md-3">
+        <p class="text-center">
+          <%= card.translated_text %>
+        </p>
+      </div> 
+      <div class="col-md-2">
+        <p class="text-center">
+          <%= card.review_date.strftime("%d/%m/%Y")  %>
+        </p>
+      </div> 
+      <div class="col-md-2">
+        <p class="text-center">
+          <%= link_to "Edit", edit_card_path(card)  %>
+        </p>
+      </div>
+      <div class="col-md-1">
+        <p class="text-center">
+          <%= link_to "Del", card_path(card), method: :delete  %>
+        </p>
+      </div>		     
+    <% end %>
   </div>
 </div>
