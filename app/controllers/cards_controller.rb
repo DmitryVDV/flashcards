@@ -1,5 +1,47 @@
 class CardsController < ApplicationController
-	def index
-		@cards = Card.all
-	end
+  before_action :find_params, only: [:show, :edit, :create, :update, :destroy]
+
+  def index
+    @cards = Card.all
+  end
+
+  def show; end
+
+  def new
+    @card = Card.new
+  end
+
+  def edit; end
+
+  def create
+    @card.save
+    if @card.save
+      redirect_to action: :index
+    else
+      render 'new'
+    end
+  end
+
+  def update
+    if @card.update(card_params)
+      redirect_to @card
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @card.destroy
+    redirect_to action: :index
+  end
+
+  private
+
+  def find_params
+    @card = Card.find(params[:id])
+  end
+
+  def card_params
+    params.require(:card).permit(:original_text, :translated_text, :review_date)
+  end
 end
