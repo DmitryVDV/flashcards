@@ -1,7 +1,7 @@
 class Card < ApplicationRecord
   validates :translated_text, :original_text, presence: true
   validates :translated_text, exclusion: { in: :original_text }
-  validate :param_compare
+  before_create :param_compare
   before_create :plus_three_day
 
   def param_compare
