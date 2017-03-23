@@ -6,19 +6,38 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-  a = []
-  b = []
-  doc = Nokogiri::HTML(open("http://www.languagedaily.com/learn-german/vocabulary/common-german-words"))
-  links = doc.xpath("//table/tbody/tr")
+  MAIN_URL = "http://www.languagedaily.com"
+  urls_array = []
+  array_helper = []
+
+  # "<<" - push value to array
+  urls_array << "http://www.languagedaily.com/learn-german/vocabulary/common-german-words"
+  links = Nokogiri::HTML(open("http://www.languagedaily.com/learn-german/vocabulary/common-german-words"))
   
-  for i in 1..links.length-1
-    c = links.slice(i).children
-    b[0] = c.slice(3).content
-    b[1] = c.slice(5).content
-    a[i] = b
-    b = []
+  # Get all Urls
+  links.css("div[class=jsn-article-content]").css("li").css("a")[0..-1].each do |row|
+    urls_array << (MAIN_URL + row["href"])
   end
 
-  a.each do |s,c|
-    Card.create(original_text: s.to_s, translated_text: c.to_s)
+  urls_array[0..-1].each do |row|
+
+    doc = Nokogiri::HTML(open(row))
+    links = doc.xpath("//table/tbody/tr")
+    #Каждая строка в таблице это NodeSet, прохожим во всем NodeSet и вытаскиваем нем и анг слова
+    #кол-во NodeSet это links.length-1
+    for i in 1..links.length-1
+    
+      #child_param это Nodeset тега <tr></tr> - выбираем этот Nodeset, на его уровни все теги <td>
+      child_param = links.slice(i).children
+      array_helper[0] = child_param.slice(3).content
+
+      if (child_param.slice(5).content.length > 1) 
+
+        array_helper[1] = child_param.slice(5).content
+        Card.create(original_text: array_helper[0].to_s, translated_text: array_helper[1].to_s)
+        
+      end
+    end
   end
+  
+
