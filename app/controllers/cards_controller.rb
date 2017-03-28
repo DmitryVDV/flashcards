@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  #before_action :find_params, only: [:show, :edit, :create, :update, :destroy]
+  before_action :find_params, only: [:show, :edit, :create, :update, :destroy]
 
   def index
     @cards = Card.all

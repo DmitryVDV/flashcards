@@ -1,8 +1,41 @@
-
-    <div class="container">
-      <p style="font-size: 22px;">
-        Первый в мире удобный менеджер флеш-карточек. Именно так.
-      </p>
-    </div>
-
-  
+<div class="container">
+  <p style="font-size: 22px;">
+    Первый в мире удобный менеджер флеш-карточек. Именно так.
+  </p>
+  <div class="row">
+    <% @cards.each do |card| %>
+      <div class="col-md-3">
+        <p class="text-center">
+          <%= link_to card.original_text.to_s, card_path(card) %>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <%= form_tag checktranslation_path do %>
+          <%= text_field_tag :checktranslation_input_param %>
+          <%= hidden_field_tag "card_id", card.id %>
+          <button>Проверить</button>
+        <% end %>
+      </div> 
+      <div class="col-md-2">
+        <p class="text-center">
+          <%= card.review_date.strftime("%d/%m/%Y")  %>
+        </p>
+      </div> 
+      <div class="col-md-2">
+        <p class="text-center">
+          <%= link_to "Edit", edit_card_path(card)  %>
+        </p>
+      </div>
+      <div class="col-md-1">
+        <p class="text-center">
+          <%= link_to "Del", card_path(card), method: :delete  %>
+        </p>
+      </div>             
+    <% end %>
+  </div>
+  <div>
+  <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+  </div>
+</div>
