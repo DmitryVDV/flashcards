@@ -5,13 +5,9 @@ class HomeController < ApplicationController
 
   def meth_checktranslation
 
-    result = CheckTranslation.call(permit_params)
+    result = CheckTranslation.call(params: permit_params)
+    redirect_to root_url, notice: result.notice
 
-    if result.success?
-      redirect_to root_url, notice: 'Молодцом, проверим следующее слово!'
-    else
-      redirect_to root_url, alert: 'Неверный ввод, попробуй другое слово!'
-    end
   end
 
   private
