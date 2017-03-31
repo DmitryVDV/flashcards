@@ -3,34 +3,24 @@
     Первый в мире удобный менеджер флеш-карточек. Именно так.
   </p>
   <div class="row">
-    <% @cards.each do |card| %>
+
+    <% if @cards == nil %>
+      <div class="container">
+        <p>Больше нет карточек подходящих по условию 3 дня!</p>
+      </div>
+    <% else %>
       <div class="col-md-3">
         <p class="text-center">
-          <%= link_to card.original_text.to_s, card_path(card) %>
+          <%= link_to @cards.original_text, card_path(@cards) %>
         </p>
       </div>
       <div class="col-md-3">
         <%= form_tag checktranslation_path do %>
-          <%= text_field_tag :checktranslation_input_param %>
-          <%= hidden_field_tag "card_id", card.id %>
+          <%= text_field_tag :translation %>
+          <%= hidden_field_tag :card_id, @cards.id %>
           <button>Проверить</button>
         <% end %>
-      </div> 
-      <div class="col-md-2">
-        <p class="text-center">
-          <%= card.review_date.strftime("%d/%m/%Y")  %>
-        </p>
-      </div> 
-      <div class="col-md-2">
-        <p class="text-center">
-          <%= link_to "Edit", edit_card_path(card)  %>
-        </p>
       </div>
-      <div class="col-md-1">
-        <p class="text-center">
-          <%= link_to "Del", card_path(card), method: :delete  %>
-        </p>
-      </div>             
     <% end %>
   </div>
   <div>
