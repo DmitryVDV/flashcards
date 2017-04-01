@@ -43,6 +43,24 @@
   margin: 0 16px;
 }
 
+.col-md-3 {
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.col-md-2 {
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.col-md-1 {
+  line-height: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* MISC */
 
 .clearfix:after {content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} html[xmlns].clearfix{display:block;} * html .clearfix{height:1%;}
