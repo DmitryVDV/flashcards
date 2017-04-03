@@ -12,6 +12,8 @@ class Card < ApplicationRecord
   # Scope - get random row from table Cards
   scope :random, -> { order('RANDOM()') }
 
+  # Update data string without space in the begining of string
+  # using (strip) and set all symbols to downcase
   def param_compare
     self.original_text = original_text.strip
     self.translated_text = translated_text.strip
