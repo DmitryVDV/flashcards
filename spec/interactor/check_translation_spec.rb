@@ -4,10 +4,8 @@ describe CheckTranslation do
 
 describe ".call" do
     # subject <=> context
-    subject { CheckTranslation.call(params: { card_id: 1, translation: "hello" }) }
-
     context "when give valid values" do
-
+      subject { CheckTranslation.call(params: { card_id: 1, translation: "hello" }) }
       it "has correct translation data" do
         expect(subject.card.translated_text).to eq('hello')
       end
@@ -15,7 +13,9 @@ describe ".call" do
       it "has +3 days update" do
         expect(subject.notice).to eq('Перевод верный, дата карточки обновлена')
       end
+    end
 
+    context "when give valid values but"
       subject { CheckTranslation.call(params: { card_id: 1, translation: "hello00000" }) }
       it "has uncorrect translation data" do
 
@@ -31,5 +31,5 @@ describe ".call" do
          expect(subject.notice).to eq('Карточка в базе не найдена!')
        end
     end
-  end
+  
 end
