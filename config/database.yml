@@ -24,7 +24,7 @@ development:
 test:
   <<: *default
   dapter: postgresql
-  database: flashcards
+  database: travis_ci_test
   host: localhost
 
 production:

@@ -1,8 +1,12 @@
 
 language: ruby
+services:
+  - postgresql
 before_install:
   #- "gem install bundler"
   - "gem install rack"
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
 rvm:
   - 2.2.2
  
