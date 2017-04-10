@@ -1,7 +1,7 @@
 
 language: ruby
 before_install:
-  - "sudo gem install bundler"
+  - "gem install bundler"
   - "gem install rack"
 rvm:
   - 2.2.0
