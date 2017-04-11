@@ -4,7 +4,7 @@ RSpec.describe Card, :type => :model do
 
   it "plus three day to review_date" do
     obj = create(:card)
-    expect(obj.send(:plus_three_day)).to eq(3.days.since)
+    expect(obj.send(:plus_three_day).strftime("%Y %m %d")).to eq(3.days.since.strftime("%Y %m %d"))
   end
 
   it "set date in without space in begin and all downcase" do
