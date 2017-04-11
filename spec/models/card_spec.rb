@@ -7,14 +7,14 @@ RSpec.describe Card, :type => :model do
     expect(obj.send(:plus_three_day).strftime("%Y %m %d")).to eq(3.days.since.strftime("%Y %m %d"))
   end
 
-  it "set date in without space in begin and all downcase" do
+  it "insert date field original_text without space in begin and all downcase" do
     obj = create(:card)
     expect(obj.original_text).to eq "привет"
   end
 
-  it "data symbols are downcase" do
+  it "insert date field translated_text without space in begin and all downcase" do
     obj = create(:card)
-    expect(obj.original_text).to eq "привет"
+    expect(obj.translated_text).to eq "hello"
   end
 
 
