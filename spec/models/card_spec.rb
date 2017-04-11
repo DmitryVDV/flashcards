@@ -9,13 +9,11 @@ RSpec.describe Card, :type => :model do
 
   it "set date in without space in begin and all downcase" do
     obj = create(:card)
-    obj.data_strip_downcase
     expect(obj.original_text).to eq "привет"
   end
 
   it "data symbols are downcase" do
     obj = create(:card)
-    obj.data_strip_downcase
     expect(obj.original_text).to eq "привет"
   end
 
