@@ -5,6 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
+* Travise
+https://travis-ci.org/DmitryVDV/flashcards.svg?branch=Task-7-
+
 * Ruby version
 
 * System dependencies
