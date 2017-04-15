@@ -1,12 +1,13 @@
 describe 'Card - testing', :type => :feature do
  
- let!(:card) { FactoryGirl.create(:card) }
+
   context 'Main page' do
 
     before(:each) do
         visit root_path
         puts card.review_date
       end
+    let!(:card) { FactoryGirl.create(:card) }
 
     it 'has main page' do
       expect(page).to have_content "Первый в мире удобный"
