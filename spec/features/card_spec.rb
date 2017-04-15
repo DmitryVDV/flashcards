@@ -5,7 +5,7 @@ describe 'Card - testing', :type => :feature do
 
     before(:each) do
         visit root_path
-        puts card.original_text
+        puts card.review_date
       end
 
     it 'has main page' do
