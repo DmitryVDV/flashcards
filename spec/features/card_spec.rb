@@ -1,7 +1,7 @@
 describe 'Card - testing', :type => :feature do
-  
+ let(:card) { FactoryGirl.create(:card) }
+
   context 'Main page' do
-    let(:card) { FactoryGirl.create(:card) }
 
     before(:each) do
         visit root_path
@@ -13,7 +13,6 @@ describe 'Card - testing', :type => :feature do
 
     it 'has correct answer when input word for translation' do
       print page.html
-
       fill_in "translation", with: card.translated_text
       click_button "Проверить"
       expect(page).to have_content("Перевод верный", wait:15)
