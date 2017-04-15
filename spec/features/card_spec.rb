@@ -1,6 +1,6 @@
 describe 'Card - testing', :type => :feature do
- let(:card) { FactoryGirl.create(:card) }
-
+ 
+ let!(:card) { FactoryGirl.create(:card) }
   context 'Main page' do
 
     before(:each) do
