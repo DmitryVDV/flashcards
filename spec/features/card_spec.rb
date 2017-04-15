@@ -14,7 +14,7 @@ describe 'Card - testing', :type => :feature do
     it 'has correct answer when input word for translation' do
       fill_in "translation", with: card.translated_text
       click_button "Проверить"
-      expect(page).to have_content("Перевод верный", wait:15)
+      puts page.html have_content("Перевод верный", wait:15)
     end
 
     it 'has uncorrect answer when input word for translation' do
