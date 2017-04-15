@@ -14,18 +14,18 @@ describe 'Card - testing', :type => :feature do
     it 'has correct answer when input word for translation' do
       fill_in 'translation', with: card.translated_text
       click_button 'Проверить'
-      expect(page).to have_content "Перевод верный"
+      expect(page).to have_content("Перевод верный", wait:15)
     end
 
     it 'has uncorrect answer when input word for translation' do
       fill_in 'translation', with: "Hl123"
       click_button 'Проверить'
-      expect(page).to have_content "Неверный ввод"
+      expect(page).to have_content("Неверный ввод", wait:15)
     end
 
     it 'open card with translation' do
       click_link('link_to_card')
-      expect(page).to have_content "привет"
+      expect(page).to have_content("привет", wait:15)
     end
 
     it 'has link Флешкарточкер' do
