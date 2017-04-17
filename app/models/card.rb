@@ -15,8 +15,9 @@ class Card < ApplicationRecord
   # Update data string without space in the begining of string
   # using (strip) and set all symbols to downcase
   def data_strip_downcase
-    self.original_text = original_text.strip.downcase
-    self.translated_text = translated_text.strip.downcase
+    # Unicode must edit via  mb_chars ! 
+    self.original_text = original_text.mb_chars.strip.downcase
+    self.translated_text = translated_text.mb_chars.strip.downcase
   end
 
   protected

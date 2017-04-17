@@ -1,11 +1,17 @@
 require 'rails_helper'
 
+
 describe CheckTranslation do
 
 describe ".call" do
     # subject <=> context
+
+    let(:card) { FactoryGirl.create(:card) }
+
     context "when give valid values" do
-      subject { CheckTranslation.call(params: { card_id: 1, translation: "hello" }) }
+      
+
+      subject { CheckTranslation.call(params: { card_id: card.id, translation: "hello" }) }
       it "has correct translation data" do
         expect(subject.card.translated_text).to eq('hello')
       end
@@ -16,7 +22,7 @@ describe ".call" do
     end
 
     context "when give valid values but"
-      subject { CheckTranslation.call(params: { card_id: 1, translation: "hello00000" }) }
+      subject { CheckTranslation.call(params: { card_id: card.id, translation: "hello00000" }) }
       it "has uncorrect translation data" do
 
         expect(subject.failure?).to be true
