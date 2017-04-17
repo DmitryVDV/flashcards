@@ -3,27 +3,26 @@ require 'rails_helper'
 describe Card, :type => :feature do
 
   context 'Main page' do
-
+    let!(:card) { FactoryGirl.create(:card) }
     before do
         visit root_path
       end
-    #let!(:card) { FactoryGirl.create(:card) }
-    #let!(:card1) { FactoryGirl.create(:card) }
+
 
     it 'has main page' do
       expect(page).to have_content "Первый в мире удобный"
     end
 
     it 'has correct answer when input word for translation' do
-      card1 = FactoryGirl.create(:card)
+      #card1 = FactoryGirl.create(:card)
       print page.html
-      fill_in "translation", with: card1.translated_text
+      fill_in "translation", with: card.translated_text
       click_button "Проверить"
       expect(page).to have_content("Перевод верный", wait:15)
     end
 
     it 'has uncorrect answer when input word for translation' do
-      FactoryGirl.create(:card)
+      #FactoryGirl.create(:card)
       fill_in "translation", with: "Hl123"
       click_button "Проверить"
       expect(page).to have_content("Неверный ввод", wait:15)
