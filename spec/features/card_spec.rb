@@ -1,9 +1,10 @@
-describe 'Card - testing', :type => :feature do
- 
+require 'rails_helper'
+
+describe Card, :type => :feature do
 
   context 'Main page' do
 
-    before(:each) do
+    before do
         visit root_path
       end
     #let!(:card) { FactoryGirl.create(:card) }
