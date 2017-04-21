@@ -5,9 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
-* Travise
+* Travis
 
-[![Build Status](https://travis-ci.org/DmitryVDV/flashcards.svg?branch=Task-7-)](https://travis-ci.org/DmitryVDV/flashcards)
+[![Build Status](https://travis-ci.org/DmitryVDV/flashcards.svg?branch=master)](https://travis-ci.org/DmitryVDV/flashcards)
 
 * Ruby version
 
