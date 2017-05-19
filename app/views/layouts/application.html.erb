@@ -17,6 +17,14 @@
 		  <ul class="nav navbar-nav">
 	        <li><%= link_to "Все карточки", cards_path %></li>
 	        <li><%= link_to "Добавить карточку", new_card_path %></li>
+          <li>
+            <% if user_signed_in? %>
+            <%=  link_to "Выйти", destroy_user_session_path, :method => :delete %>
+            <% else %>
+            <%=  link_to "Войти", user_session_path %>
+            <% end %>
+
+          </li>
           </ul>
 		</div>
 	  </div>
