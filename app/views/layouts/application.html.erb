@@ -9,25 +9,29 @@
   </head>
   <body>
     <div class="container"
-	  <div class="navbar navbar-default clearfix">
-	    <div class="navbar-header">
-		  <h3><%= link_to "Флэшкарточкер", root_path %></h3>
-		</div>
-		<div class="nav navbar-nav navbar-right navigation-links">
-		  <ul class="nav navbar-nav">
-	        <li><%= link_to "Все карточки", cards_path %></li>
-	        <li><%= link_to "Добавить карточку", new_card_path %></li>
+    <div class="navbar navbar-default clearfix">
+      <div class="navbar-header">
+      <h3><%= link_to "Флэшкарточкер", root_path %></h3>
+    </div>
+    <div class="nav navbar-nav navbar-right navigation-links">
+      <ul class="nav navbar-nav">
+          <li><%= link_to "Все карточки", cards_path %></li>
+          <li><%= link_to "Добавить карточку", new_card_path %></li>
           <li>
             <% if user_signed_in? %>
-            <%=  link_to "Выйти", destroy_user_session_path, :method => :delete %>
+              <%= link_to "Выйти", destroy_user_session_path, :method => :delete %>
             <% else %>
-            <%=  link_to "Войти", user_session_path %>
+              <%= link_to "Войти", user_session_path %>
             <% end %>
-
+          </li>
+          <li>
+            <% if user_signed_in? %>
+              <%= link_to "Профиль", edit_user_path %>
+            <% end %>
           </li>
           </ul>
-		</div>
-	  </div>
+    </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     </div>
