@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for(@user, :url => { :action => "update_email" } ) do |f| %>
   <div class="field">
     <%= f.input :email, placeholder: ''%>
@@ -17,3 +18,4 @@
     <%= f.submit 'Обновить пароль'%>
   </div>
 <% end %>
+</div>
