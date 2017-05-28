@@ -17,7 +17,8 @@ RSpec.describe Card, :type => :model do
   it "it has one user" do
     user_test = create(:user_with_card)
     card_test = Card.last
-    expect(card_test.user.email).to eq "my@mail.ru"
+    expect(card_test.user.email).to eq user_test.email
+
   end
 
   it "there is no cards without user" do

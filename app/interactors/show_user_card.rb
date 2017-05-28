@@ -11,5 +11,6 @@ class ShowUserCard
 
     # Почему тут нельзя сделать что-то типа cards = Card.user ???
     context.cards = Card.find_more_three_day.random.where(user_id: user.id).first
+
   end
 end

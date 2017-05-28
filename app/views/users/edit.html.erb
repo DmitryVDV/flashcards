@@ -2,6 +2,13 @@
   <p style="font-size: 22px;">
     Отредактируйте email или пароль
   </p>
+  <div>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+    <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+  </div>
   <div class="row">
     <%= render 'userform' %>
   </div>

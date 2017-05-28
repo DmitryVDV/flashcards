@@ -3,6 +3,7 @@ class CardsController < ApplicationController
 
   def index
     @cards = Card.where(user_id: current_user.id)
+
   end
 
   def show; end
@@ -18,7 +19,13 @@ class CardsController < ApplicationController
 
     user = User.find(current_user.id)
 
-    if user.cards.create!(card_params)
+    #if user.cards.create!(card_params)
+      #redirect_to action: :index
+    #else
+      #render 'new'
+    #end
+    result = CardReviewDateThreeDays.call(params: card_params, user: user)
+    if result
       redirect_to action: :index
     else
       render 'new'

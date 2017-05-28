@@ -5,9 +5,9 @@ class HomeController < ApplicationController
     # была ошбка
 
     params = ActionController::Parameters.new
-    puts params[:id] = current_user.id
-    puts params[:provider] = current_user.provider
-    puts params[:uid] = current_user.uid
+    params[:id] = current_user.id
+    params[:provider] = current_user.provider
+    params[:uid] = current_user.uid
 
     result = ShowUserCard.call(params)
     @cards = result.cards
