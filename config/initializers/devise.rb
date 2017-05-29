@@ -254,12 +254,12 @@ Devise.setup do |config|
   #
   config.omniauth :vkontakte, ENV['APP_ID'], ENV['APP_SECRET'],
   {
-      :scope => 'friends,audio,photos',
-      :display => 'popup',
-      :lang => 'en',
-      :https => 1,
-      :image_size => 'original'
-    }
+    scope: 'friends,audio,photos',
+    display: 'popup',
+    lang: 'en',
+    https: 1,
+    image_size: 'original'
+  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

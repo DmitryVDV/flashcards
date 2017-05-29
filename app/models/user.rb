@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates :email, uniqueness: true, allow_blank: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers:[:vkontakte]
+         :omniauthable, omniauth_providers: [:vkontakte]
   has_many :cards
 
   def self.from_omniauth(auth)

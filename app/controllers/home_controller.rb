@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
-
-    # Так пришлось сделать так как в Интерактор current_user не передавался
-    # была ошбка
-
+    # Is it good code style or there is better way?
     params = ActionController::Parameters.new
     params[:id] = current_user.id
     params[:provider] = current_user.provider

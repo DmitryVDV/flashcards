@@ -10,11 +10,10 @@ class ApplicationController < ActionController::Base
   private
 
   def layout_by_resource
-    if devise_controller? && action = "new"
-      "new_session_for_devise"
+    if devise_controller? && action = 'new'
+      'new_session_for_devise'
     else
-      "application"
+      'application'
     end
   end
-
 end
