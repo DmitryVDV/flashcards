@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-  def edit
-    @user = current_user
-  end
+  before_action :set_current_user, only: [:edit, :update_email, :update_password]
+
+  def edit; end
 
   def update_email
-    @user = User.find(current_user.id)
-
     if @user.update(email_params)
       redirect_to root_path, notice: 'Email изменен'
     else
@@ -15,8 +13,6 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    @user = User.find(current_user.id)
-
     if password_params[:password] == password_params[:password_confirmation]
 
       if @user.update(password_params)
@@ -34,6 +30,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_current_user
+    @user = current_user
+  end
 
   def email_params
     params.require(:user).permit(:email)

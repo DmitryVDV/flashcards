@@ -1,0 +1,21 @@
+<div class="container">
+  <%= simple_form_for(@user, :url => { :action => "update_email" } ) do |f| %>
+    <div class="field">
+      <%= f.input :email, placeholder: ''%>
+    </div>
+    <div class="action_container">
+      <%= f.submit 'Обновить Email' %>
+    </div>
+  <% end %>
+  <%= simple_form_for(@user, :url => { :action => "update_password" } ) do |f| %>
+    <div class="field">
+      <%= f.input :password, label: 'Введите новый пароль' %>
+    </div>
+    <div class="field">
+      <%= f.input :password_confirmation, label: 'Введите новый пароль еще раз' %>
+    </div>
+    <div class="action_container">
+      <%= f.submit 'Обновить пароль'%>
+    </div>
+  <% end %>
+</div>

@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   before_action :find_params, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.where(user_id: current_user.id)
+    @cards = current_user.cards
   end
 
   def show; end
@@ -14,11 +14,8 @@ class CardsController < ApplicationController
   def edit; end
 
   def create
-    puts card_params
 
-    user = User.find(current_user.id)
-
-    result = CardReviewDateThreeDays.call(params: card_params, user: user)
+    result = CardReviewDateThreeDays.call(params: card_params, user: current_user)
     if result
       redirect_to action: :index
     else
