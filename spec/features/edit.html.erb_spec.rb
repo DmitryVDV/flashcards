@@ -1,21 +1,23 @@
 require 'rails_helper'
-require 'database_cleaner'
+require 'awesome_print'
+require 'pry'
+require 'hirb'
 
-DatabaseCleaner.strategy = :truncation, {:only => %w[users cards]}
-
-RSpec.describe 'users/edit.html.erb', type: :feature do
+RSpec.feature 'users/edit.html.erb' do
   context 'Main page' do
     before do
-      DatabaseCleaner.clean
+
       @card = create(:card)
       @user = @card.user
       @user_id = @user.id
       sign_in @user
       visit root_path
+
       click_link('link_to_profile')
     end
 
     it 'has load page and forms' do
+      #binding.pry
       expect(page).to have_content 'Отредактируйте email или пароль'
     end
 

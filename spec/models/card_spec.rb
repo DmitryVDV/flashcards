@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Card, :type => :model do
+  before do
+      @card = create(:card)
+      @user = @card.user
+      @user_id = @user.id
+    end
 
   it "insert date field original_text without space in begin and all downcase" do
     card_test = Card.last
