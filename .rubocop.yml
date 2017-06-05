@@ -262,3 +262,7 @@ Style/TrailingWhitespace:
     - 'app/models/card.rb'
     - 'db/seeds.rb'
     - 'spec/interactor/check_translation_spec.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+

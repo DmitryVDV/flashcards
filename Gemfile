@@ -5,8 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 # Iteractor contain buisness logic
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'interactor'
 gem 'devise'
+gem 'omniauth-vkontakte'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'rails', '~> 5.0.1'
@@ -46,6 +48,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'jazz_fingers'
+  gem 'database_cleaner'
 end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

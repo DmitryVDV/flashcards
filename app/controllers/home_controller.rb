@@ -1,6 +1,13 @@
 class HomeController < ApplicationController
   def index
-    @cards = Card.find_more_three_day.random.first
+    # Is it good code style or there is better way?
+    params = ActionController::Parameters.new
+    params[:id] = current_user.id
+    params[:provider] = current_user.provider
+    params[:uid] = current_user.uid
+
+    result = ShowUserCard.call(params)
+    @cards = result.cards
   end
 
   def meth_checktranslation

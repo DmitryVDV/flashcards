@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_email'
+      patch 'update_password'
+    end
+  end
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root 'home#index'
   resources :cards
   post 'checktranslation' => 'home#meth_checktranslation'

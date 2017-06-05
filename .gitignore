@@ -21,6 +21,7 @@
 /app/helpers/*.rb
 /app/assets/stylesheets/home.scss
 /app/assets/javascripts/home.coffee
+/.env
 
 # Ignore Byebug command history file.
 .byebug_history

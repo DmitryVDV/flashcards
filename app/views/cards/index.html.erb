@@ -4,39 +4,25 @@
   </p>
   <div class="row">
     <div class="table-responsive">
-      <table class="table-striped">
-        <tbody>
           <% @cards.each do |card| %>
-            <tr>
-              <td>
-                <p class="text-center">
+            <div class="flex-container Grid-cell">
+              <div class="flex-item-originaltext">
                   <%= link_to card.original_text.to_s, card_path(card) %>
-                </p>
-              </td>
-              <td>
-                <p class="text-center">
-                  <%= link_to card.translated_text.to_s, card_path(card) %>
-                </p>
-              </td>
-              <td>
-                <p class="text-center">
-                  <%= card.review_date.strftime("%d/%m/%Y")  %>
-                </p>
-              </td>
-              <td>
-                <p class="text-center">
-                  <%= link_to "Edit", edit_card_path(card)  %>
-                </p>
-              </td>
-              <td>
-                <p class="text-center">
-                  <%= link_to "Del", card_path(card), method: :delete  %>
-                </p>
-              </td>
-            </tr>
+              </div>
+              <div class="flex-item-translatedtext">
+                <%= link_to card.translated_text.to_s, card_path(card) %>
+              </div>
+              <div class="flex-item-other">
+                <%= card.review_date.strftime("%d/%m/%Y")  %>
+              </div>
+              <div class="flex-item-other">
+                <%= link_to "Edit", edit_card_path(card)  %>
+              </div>
+              <div class="flex-item-other">
+                <%= link_to "Del", card_path(card), method: :delete  %>
+              </div>
+            </div>
           <% end %>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
