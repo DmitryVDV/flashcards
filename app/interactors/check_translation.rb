@@ -12,6 +12,7 @@ class CheckTranslation
       if card.translated_text == context.params[:translation]
         # There is updating review_date + 3 day
         if card.update(review_date: 3.days.since)
+
           context.notice = 'Перевод верный, дата карточки обновлена'
         end
       else

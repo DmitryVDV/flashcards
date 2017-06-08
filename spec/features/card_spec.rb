@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe Card, :type => :feature do
 
   context 'Main page' do
@@ -14,7 +13,6 @@ describe Card, :type => :feature do
       visit root_path
 
     end
-
 
     it 'has main page after success login' do
       expect(page).to have_content "Флэшкарточкер"
@@ -55,5 +53,4 @@ describe Card, :type => :feature do
       expect(page).to have_content "Original text"
     end
   end
-
 end

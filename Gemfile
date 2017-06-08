@@ -14,6 +14,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'rails', '~> 5.0.1'
 # Simple forms for Rails
 gem 'simple_form'
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
+gem "mini_magick"
 
 # Use Postgres as the database for Active Record
 gem 'pg'

@@ -15,6 +15,14 @@
               <div class="flex-item-other">
                 <%= card.review_date.strftime("%d/%m/%Y")  %>
               </div>
+
+              <div class="flex-item-other">
+                <%  if card.cardimage.file.nil?  %>
+                  <p> Нет картинки</p>
+                <% else %>
+                  <%= image_tag(card.cardimage.small.url) if card.cardimage? %>
+                <% end %>
+              </div>
               <div class="flex-item-other">
                 <%= link_to "Edit", edit_card_path(card)  %>
               </div>

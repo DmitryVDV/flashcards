@@ -14,8 +14,8 @@ class CardsController < ApplicationController
   def edit; end
 
   def create
-
     result = CardReviewDateThreeDays.call(params: card_params, user: current_user)
+
     if result
       redirect_to action: :index
     else
@@ -43,6 +43,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit(:original_text, :translated_text, :review_date)
+    params.require(:card).permit(:original_text, :translated_text, :review_date, :cardimage, :remote_cardimage_url)
   end
 end

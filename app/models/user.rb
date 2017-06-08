@@ -27,5 +27,4 @@ class User < ApplicationRecord
   def password_changed?
     false
   end
-
 end
