@@ -96,6 +96,19 @@ Style/Documentation:
     - 'test/**/*'
     - 'app/**/*'
     - 'db/**/*'
+    - 'app/controllers/application_controller.rb'
+    - 'app/controllers/cards_controller.rb'
+    - 'app/controllers/home_controller.rb'
+    - 'app/helpers/application_helper.rb'
+    - 'app/helpers/cards_helper.rb'
+    - 'app/helpers/home_helper.rb'
+    - 'app/interactors/check_translation.rb'
+    - 'app/mailers/application_mailer.rb'
+    - 'app/models/application_record.rb'
+    - 'app/models/card.rb'
+    - 'app/models/user.rb'
+    - 'db/migrate/20170121125323_create_cards.rb'
+    - 'db/migrate/20170419071210_create_users.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.

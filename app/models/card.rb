@@ -1,6 +1,6 @@
 class Card < ApplicationRecord
   belongs_to :user
-  validates :translated_text, :original_text, :cardimage, presence: { message: '!!!!!!!!!!!!!!!!!' }, on: :сreate
+  validates :translated_text, :original_text, :cardimage, presence: true
   validates :translated_text, exclusion: { in: :original_text }
   before_create :data_strip_downcase
   mount_uploader :cardimage, CardimageUploader

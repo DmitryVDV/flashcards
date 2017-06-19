@@ -5,7 +5,6 @@ if Rails.env.test?
   end
 else
   CarrierWave.configure do |config|
-    storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
       provider:              'AWS',
@@ -14,6 +13,7 @@ else
       region:                'eu-central-1',
       endpoint:              'https://s3.eu-central-1.amazonaws.com'
     }
+    config.storage = :fog
     config.fog_directory  = ENV['FOG_DIRECTORY']
     config.fog_public     = false
     config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" }

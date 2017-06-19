@@ -15,10 +15,10 @@ class CardsController < ApplicationController
 
   def create
     result = CardReviewDateThreeDays.call(params: card_params, user: current_user)
-
-    if result
-      redirect_to action: :index
+    if result.success?
+      redirect_to action: :index, notice: result.notice
     else
+      @card = result.card
       render 'new'
     end
   end
