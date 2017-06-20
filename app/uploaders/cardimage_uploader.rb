@@ -1,5 +1,4 @@
 class CardimageUploader < CarrierWave::Uploader::Base
-
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -13,5 +12,4 @@ class CardimageUploader < CarrierWave::Uploader::Base
   version :small do
     process resize_to_fill: [50, 50]
   end
-
 end

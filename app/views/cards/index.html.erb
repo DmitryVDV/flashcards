@@ -17,10 +17,10 @@
               </div>
 
               <div class="flex-item-other">
-                <%  if card.cardimage.file.nil?  %>
+                <%  if card.image.file.nil?  %>
                   <p> Нет картинки</p>
                 <% else %>
-                  <%= image_tag(card.cardimage.small.url) if card.cardimage? %>
+                  <%= image_tag(card.image.small.url) if card.image? %>
                 <% end %>
               </div>
               <div class="flex-item-other">

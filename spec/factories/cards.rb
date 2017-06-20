@@ -5,7 +5,7 @@ FactoryGirl.define do
     translated_text " Hello"
     review_date 4.days.ago
     user
-    cardimage { File.new("#{Rails.root}/spec/features/test_img.jpg") }
+    image { File.new("#{Rails.root}/spec/features/test_img.jpg") }
   end
 
 end

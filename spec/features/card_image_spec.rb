@@ -8,7 +8,7 @@ describe CardimageUploader do
 
   before do
     CardimageUploader.enable_processing = true
-    @uploader = CardimageUploader.new(card, :cardimage)
+    @uploader = CardimageUploader.new(card, :image)
     @uploader.store!(File.open(Rails.root.to_s + '/spec/features/test_img.jpg'))
   end
 

@@ -1,9 +1,9 @@
 class Card < ApplicationRecord
   belongs_to :user
-  validates :translated_text, :original_text, :cardimage, presence: true
+  validates :translated_text, :original_text, :image, presence: true
   validates :translated_text, exclusion: { in: :original_text }
   before_create :data_strip_downcase
-  mount_uploader :cardimage, CardimageUploader
+  mount_uploader :image, CardimageUploader
 
   # Scope - get date with review_date > 3 days
   # After -> used {} because  "will be used at which the scope would have
