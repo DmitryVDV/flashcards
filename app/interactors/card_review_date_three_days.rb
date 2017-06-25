@@ -5,12 +5,12 @@ class CardReviewDateThreeDays
     user = context.user
     context.params[:review_date] = 3.days.since
 
-    newcard = user.cards.create(context.params)
+    new_card = user.cards.create(context.params)
 
     if newcard.valid?
       context.notice = 'Карточка в базу записана!'
     else
-      context.card = newcard
+      context.card = new_card
       context.notice = 'Карточка в базу не записана!'
       context.fail!
     end

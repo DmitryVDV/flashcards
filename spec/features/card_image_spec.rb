@@ -1,19 +1,19 @@
 require 'rails_helper'
 
-describe CardimageUploader do
+describe ImageUploader do
   include CarrierWave::Test::Matchers
 
   let(:card) { create(:card) }
-  let(:uploader) { CardimageUploader.new(card) }
+  let(:uploader) { ImageUploader.new(card) }
 
   before do
-    CardimageUploader.enable_processing = true
-    @uploader = CardimageUploader.new(card, :image)
+    ImageUploader.enable_processing = true
+    @uploader = ImageUploader.new(card, :image)
     @uploader.store!(File.open(Rails.root.to_s + '/spec/features/test_img.jpg'))
   end
 
   after do
-    CardimageUploader.enable_processing = false
+    ImageUploader.enable_processing = false
     @uploader.remove!
   end
 

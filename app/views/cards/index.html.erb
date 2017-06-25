@@ -17,11 +17,7 @@
               </div>
 
               <div class="flex-item-other">
-                <%  if card.image.file.nil?  %>
-                  <p> Нет картинки</p>
-                <% else %>
-                  <%= image_tag(card.image.small.url) if card.image? %>
-                <% end %>
+                <%= image_tag(card.image.small.url) if card.image? %>
               </div>
               <div class="flex-item-other">
                 <%= link_to "Edit", edit_card_path(card)  %>
