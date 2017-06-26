@@ -1,12 +1,8 @@
 require 'rails_helper'
-require 'awesome_print'
-require 'pry'
-require 'hirb'
 
 RSpec.feature 'users/edit.html.erb' do
   context 'Main page' do
     before do
-
       @card = create(:card)
       @user = @card.user
       @user_id = @user.id
@@ -17,7 +13,6 @@ RSpec.feature 'users/edit.html.erb' do
     end
 
     it 'has load page and forms' do
-      #binding.pry
       expect(page).to have_content 'Отредактируйте email или пароль'
     end
 

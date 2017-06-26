@@ -4,21 +4,23 @@
   </p>
   <div class="row">
 
-    <% if @cards == nil %>
+    <% if @card == nil %>
       <div class="container">
         <p>Больше нет карточек подходящих по условию 3 дня!</p>
-
       </div>
     <% else %>
-      <div class="col-md-3">
+      <div class="col-md-4">
+        <%= image_tag(@card.image.url) if @card.image? %>
+      </div>
+      <div class="col-md-4">
         <p class="text-center">
-          <%= link_to @cards.original_text, card_path(@cards), id: 'link_to_card' %>
+          <%= link_to @card.original_text, card_path(@card), id: 'link_to_card' %>
         </p>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= form_tag checktranslation_path do %>
           <%= text_field_tag :translation %>
-          <%= hidden_field_tag :card_id, @cards.id %>
+          <%= hidden_field_tag :card_id, @card.id %>
           <button>Проверить</button>
         <% end %>
       </div>

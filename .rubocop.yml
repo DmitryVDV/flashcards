@@ -94,6 +94,8 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
+    - 'app/**/*'
+    - 'db/**/*'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/cards_controller.rb'
     - 'app/controllers/home_controller.rb'

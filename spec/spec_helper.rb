@@ -20,6 +20,13 @@ require 'capybara/rspec'
 RSpec.configure do |config|
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
+
+  config.after(:each) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir[Rails.root.to_s + '/public/flashcard777'])
+    end
+  end
+
 =begin
   # These two settings work together to allow you to limit a spec run
   # to individual examples or groups you care about by tagging them with
@@ -27,6 +34,7 @@ RSpec.configure do |config|
   # get run.
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
+
 
 
   config.include Capybara::DSL

@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     params[:uid] = current_user.uid
 
     result = ShowUserCard.call(params)
-    @cards = result.cards
+    @card = result.cards
   end
 
   def meth_checktranslation
